@@ -3,27 +3,87 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0373CEF01A872D722A54E1CB /* Pods_alar_studios_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC7DE21395D5F2269230A85 /* Pods_alar_studios_test.framework */; };
+		620D9AD726D3EBFF004CBA38 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D9AD626D3EBFF004CBA38 /* Storyboard.swift */; };
+		620D9ADA26D3EC1C004CBA38 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D9AD926D3EC1C004CBA38 /* Instantiatable.swift */; };
+		620D9ADD26D3EC44004CBA38 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D9ADC26D3EC44004CBA38 /* Injectable.swift */; };
+		620D9AE026D3EC62004CBA38 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D9ADF26D3EC62004CBA38 /* FeedView.swift */; };
+		620D9AE326D3EC6E004CBA38 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D9AE226D3EC6E004CBA38 /* FeedViewModel.swift */; };
+		6220789226D3D24A005B9BF8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220789126D3D24A005B9BF8 /* NetworkService.swift */; };
+		6220789626D3D26D005B9BF8 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220789526D3D26D005B9BF8 /* NetworkServiceProvider.swift */; };
+		6220789A26D3D2A2005B9BF8 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220789926D3D2A2005B9BF8 /* AppError.swift */; };
+		6220789D26D3D2CF005B9BF8 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220789C26D3D2CF005B9BF8 /* ApiError.swift */; };
+		622078A126D3D313005B9BF8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622078A026D3D313005B9BF8 /* UIApplication.swift */; };
+		622078A526D3D339005B9BF8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622078A426D3D339005B9BF8 /* LoginViewModel.swift */; };
+		622078AB26D3D4F0005B9BF8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622078AA26D3D4F0005B9BF8 /* ViewModelType.swift */; };
+		622078AF26D3D57F005B9BF8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622078AE26D3D57F005B9BF8 /* LocationService.swift */; };
+		622078B226D3DB25005B9BF8 /* LocationServiceGeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622078B126D3DB25005B9BF8 /* LocationServiceGeneralResponse.swift */; };
 		624CA58226D3D09C0007CFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CA58126D3D09C0007CFED /* AppDelegate.swift */; };
-		624CA58426D3D09C0007CFED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CA58326D3D09C0007CFED /* SceneDelegate.swift */; };
-		624CA58626D3D09C0007CFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CA58526D3D09C0007CFED /* ViewController.swift */; };
+		624CA58626D3D09C0007CFED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CA58526D3D09C0007CFED /* LoginView.swift */; };
 		624CA58926D3D09C0007CFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624CA58726D3D09C0007CFED /* Main.storyboard */; };
 		624CA58B26D3D09E0007CFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624CA58A26D3D09E0007CFED /* Assets.xcassets */; };
 		624CA58E26D3D09E0007CFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624CA58C26D3D09E0007CFED /* LaunchScreen.storyboard */; };
+		629EF25826D4E849008AD24C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF25726D4E849008AD24C /* UIImageView.swift */; };
+		629EF25C26D5316F008AD24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF25B26D5316F008AD24C /* UITextField.swift */; };
+		629EF25F26D531A6008AD24C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF25E26D531A6008AD24C /* UIView.swift */; };
+		629EF26226D53225008AD24C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF26126D53225008AD24C /* LoadingView.swift */; };
+		62FD4E6726D3F1DE00D9D5A9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E6626D3F1DE00D9D5A9 /* UIViewController.swift */; };
+		62FD4E6A26D3F1FF00D9D5A9 /* ViewLoadBeforeInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E6926D3F1FF00D9D5A9 /* ViewLoadBeforeInject.swift */; };
+		62FD4E6D26D3F5D500D9D5A9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E6C26D3F5D500D9D5A9 /* Location.swift */; };
+		62FD4E7026D400F400D9D5A9 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E6F26D400F400D9D5A9 /* DetailedView.swift */; };
+		62FD4E7426D4013A00D9D5A9 /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E7326D4013A00D9D5A9 /* DetailedViewModel.swift */; };
+		62FD4E7826D405D600D9D5A9 /* SubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E7726D405D600D9D5A9 /* SubtitleTableViewCell.swift */; };
+		62FD4E8226D4116100D9D5A9 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E8126D4116100D9D5A9 /* MapPoint.swift */; };
+		62FD4E9326D456BB00D9D5A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E9226D456BB00D9D5A9 /* Coordinator.swift */; };
+		62FD4E9626D4574600D9D5A9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E9526D4574600D9D5A9 /* LoginCoordinator.swift */; };
+		62FD4E9B26D45EFF00D9D5A9 /* MainAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4E9A26D45EFF00D9D5A9 /* MainAppCoordinator.swift */; };
+		62FD4EA226D4E59B00D9D5A9 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4EA126D4E59B00D9D5A9 /* UIScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DC7DE21395D5F2269230A85 /* Pods_alar_studios_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alar_studios_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE44DFAA8CD87B7601F56DC /* Pods-alar-studios-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alar-studios-test.debug.xcconfig"; path = "Target Support Files/Pods-alar-studios-test/Pods-alar-studios-test.debug.xcconfig"; sourceTree = "<group>"; };
+		620D9AD626D3EBFF004CBA38 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		620D9AD926D3EC1C004CBA38 /* Instantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
+		620D9ADC26D3EC44004CBA38 /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		620D9ADF26D3EC62004CBA38 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		620D9AE226D3EC6E004CBA38 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		6220789126D3D24A005B9BF8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		6220789526D3D26D005B9BF8 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
+		6220789926D3D2A2005B9BF8 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		6220789C26D3D2CF005B9BF8 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		622078A026D3D313005B9BF8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		622078A426D3D339005B9BF8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		622078AA26D3D4F0005B9BF8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		622078AE26D3D57F005B9BF8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		622078B126D3DB25005B9BF8 /* LocationServiceGeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceGeneralResponse.swift; sourceTree = "<group>"; };
 		624CA57E26D3D09C0007CFED /* alar-studios-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alar-studios-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		624CA58126D3D09C0007CFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		624CA58326D3D09C0007CFED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		624CA58526D3D09C0007CFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		624CA58526D3D09C0007CFED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		624CA58826D3D09C0007CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		624CA58A26D3D09E0007CFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		624CA58D26D3D09E0007CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		624CA58F26D3D09E0007CFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		629EF25726D4E849008AD24C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		629EF25B26D5316F008AD24C /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		629EF25E26D531A6008AD24C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		629EF26126D53225008AD24C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		62FD4E6626D3F1DE00D9D5A9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		62FD4E6926D3F1FF00D9D5A9 /* ViewLoadBeforeInject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoadBeforeInject.swift; sourceTree = "<group>"; };
+		62FD4E6C26D3F5D500D9D5A9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		62FD4E6F26D400F400D9D5A9 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
+		62FD4E7326D4013A00D9D5A9 /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
+		62FD4E7726D405D600D9D5A9 /* SubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTableViewCell.swift; sourceTree = "<group>"; };
+		62FD4E8126D4116100D9D5A9 /* MapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
+		62FD4E9226D456BB00D9D5A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		62FD4E9526D4574600D9D5A9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		62FD4E9A26D45EFF00D9D5A9 /* MainAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppCoordinator.swift; sourceTree = "<group>"; };
+		62FD4EA126D4E59B00D9D5A9 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		E08F6779597641CE44815E3C /* Pods-alar-studios-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alar-studios-test.release.xcconfig"; path = "Target Support Files/Pods-alar-studios-test/Pods-alar-studios-test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +91,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0373CEF01A872D722A54E1CB /* Pods_alar_studios_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50FC5EB72443C3991837FB1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3BE44DFAA8CD87B7601F56DC /* Pods-alar-studios-test.debug.xcconfig */,
+				E08F6779597641CE44815E3C /* Pods-alar-studios-test.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6220789026D3D22F005B9BF8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6220789126D3D24A005B9BF8 /* NetworkService.swift */,
+				6220789526D3D26D005B9BF8 /* NetworkServiceProvider.swift */,
+				622078AE26D3D57F005B9BF8 /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6220789826D3D298005B9BF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6220789926D3D2A2005B9BF8 /* AppError.swift */,
+				6220789C26D3D2CF005B9BF8 /* ApiError.swift */,
+				622078B126D3DB25005B9BF8 /* LocationServiceGeneralResponse.swift */,
+				62FD4E6C26D3F5D500D9D5A9 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6220789F26D3D307005B9BF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				622078A026D3D313005B9BF8 /* UIApplication.swift */,
+				62FD4E6626D3F1DE00D9D5A9 /* UIViewController.swift */,
+				62FD4EA126D4E59B00D9D5A9 /* UIScrollView.swift */,
+				629EF25726D4E849008AD24C /* UIImageView.swift */,
+				629EF25B26D5316F008AD24C /* UITextField.swift */,
+				629EF25E26D531A6008AD24C /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		622078A926D3D4D9005B9BF8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				620D9ADC26D3EC44004CBA38 /* Injectable.swift */,
+				620D9AD926D3EC1C004CBA38 /* Instantiatable.swift */,
+				620D9AD626D3EBFF004CBA38 /* Storyboard.swift */,
+				622078AA26D3D4F0005B9BF8 /* ViewModelType.swift */,
+				62FD4E6926D3F1FF00D9D5A9 /* ViewLoadBeforeInject.swift */,
+				62FD4E9226D456BB00D9D5A9 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		624CA57526D3D09C0007CFED = {
 			isa = PBXGroup;
 			children = (
 				624CA58026D3D09C0007CFED /* alar-studios-test */,
 				624CA57F26D3D09C0007CFED /* Products */,
+				50FC5EB72443C3991837FB1A /* Pods */,
+				661D7E694A313D5ADDBC6927 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +176,59 @@
 			isa = PBXGroup;
 			children = (
 				624CA58126D3D09C0007CFED /* AppDelegate.swift */,
-				624CA58326D3D09C0007CFED /* SceneDelegate.swift */,
-				624CA58526D3D09C0007CFED /* ViewController.swift */,
+				62FD4E9E26D4D01400D9D5A9 /* Views */,
+				6220789826D3D298005B9BF8 /* Model */,
+				6220789026D3D22F005B9BF8 /* Services */,
+				622078A926D3D4D9005B9BF8 /* Protocols */,
+				6220789F26D3D307005B9BF8 /* Extensions */,
+				624CA58C26D3D09E0007CFED /* LaunchScreen.storyboard */,
 				624CA58726D3D09C0007CFED /* Main.storyboard */,
 				624CA58A26D3D09E0007CFED /* Assets.xcassets */,
-				624CA58C26D3D09E0007CFED /* LaunchScreen.storyboard */,
 				624CA58F26D3D09E0007CFED /* Info.plist */,
 			);
 			path = "alar-studios-test";
+			sourceTree = "<group>";
+		};
+		62FD4E9E26D4D01400D9D5A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62FD4EA026D4D03C00D9D5A9 /* Login */,
+				62FD4E9F26D4D03C00D9D5A9 /* Main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62FD4E9F26D4D03C00D9D5A9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				62FD4E9A26D45EFF00D9D5A9 /* MainAppCoordinator.swift */,
+				62FD4E7726D405D600D9D5A9 /* SubtitleTableViewCell.swift */,
+				62FD4E8126D4116100D9D5A9 /* MapPoint.swift */,
+				629EF26126D53225008AD24C /* LoadingView.swift */,
+				620D9ADF26D3EC62004CBA38 /* FeedView.swift */,
+				620D9AE226D3EC6E004CBA38 /* FeedViewModel.swift */,
+				62FD4E6F26D400F400D9D5A9 /* DetailedView.swift */,
+				62FD4E7326D4013A00D9D5A9 /* DetailedViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		62FD4EA026D4D03C00D9D5A9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				62FD4E9526D4574600D9D5A9 /* LoginCoordinator.swift */,
+				624CA58526D3D09C0007CFED /* LoginView.swift */,
+				622078A426D3D339005B9BF8 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		661D7E694A313D5ADDBC6927 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DC7DE21395D5F2269230A85 /* Pods_alar_studios_test.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 624CA59226D3D09E0007CFED /* Build configuration list for PBXNativeTarget "alar-studios-test" */;
 			buildPhases = (
+				9854D7D80D212653B78D02C9 /* [CP] Check Pods Manifest.lock */,
 				624CA57A26D3D09C0007CFED /* Sources */,
 				624CA57B26D3D09C0007CFED /* Frameworks */,
 				624CA57C26D3D09C0007CFED /* Resources */,
+				374BB1A5ECE4F2C038486E6A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +298,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		374BB1A5ECE4F2C038486E6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-alar-studios-test/Pods-alar-studios-test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-alar-studios-test/Pods-alar-studios-test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-alar-studios-test/Pods-alar-studios-test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9854D7D80D212653B78D02C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-alar-studios-test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		624CA57A26D3D09C0007CFED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624CA58626D3D09C0007CFED /* ViewController.swift in Sources */,
+				62FD4E8226D4116100D9D5A9 /* MapPoint.swift in Sources */,
+				62FD4E7426D4013A00D9D5A9 /* DetailedViewModel.swift in Sources */,
+				624CA58626D3D09C0007CFED /* LoginView.swift in Sources */,
+				629EF25826D4E849008AD24C /* UIImageView.swift in Sources */,
+				622078A126D3D313005B9BF8 /* UIApplication.swift in Sources */,
+				622078AF26D3D57F005B9BF8 /* LocationService.swift in Sources */,
+				622078B226D3DB25005B9BF8 /* LocationServiceGeneralResponse.swift in Sources */,
+				629EF25C26D5316F008AD24C /* UITextField.swift in Sources */,
+				620D9AD726D3EBFF004CBA38 /* Storyboard.swift in Sources */,
+				6220789626D3D26D005B9BF8 /* NetworkServiceProvider.swift in Sources */,
+				629EF25F26D531A6008AD24C /* UIView.swift in Sources */,
+				62FD4E9326D456BB00D9D5A9 /* Coordinator.swift in Sources */,
+				620D9ADD26D3EC44004CBA38 /* Injectable.swift in Sources */,
+				6220789A26D3D2A2005B9BF8 /* AppError.swift in Sources */,
+				62FD4E6726D3F1DE00D9D5A9 /* UIViewController.swift in Sources */,
+				622078A526D3D339005B9BF8 /* LoginViewModel.swift in Sources */,
+				62FD4E6A26D3F1FF00D9D5A9 /* ViewLoadBeforeInject.swift in Sources */,
+				6220789226D3D24A005B9BF8 /* NetworkService.swift in Sources */,
+				62FD4E9B26D45EFF00D9D5A9 /* MainAppCoordinator.swift in Sources */,
+				62FD4E7026D400F400D9D5A9 /* DetailedView.swift in Sources */,
+				620D9AE026D3EC62004CBA38 /* FeedView.swift in Sources */,
+				62FD4E9626D4574600D9D5A9 /* LoginCoordinator.swift in Sources */,
+				62FD4E7826D405D600D9D5A9 /* SubtitleTableViewCell.swift in Sources */,
 				624CA58226D3D09C0007CFED /* AppDelegate.swift in Sources */,
-				624CA58426D3D09C0007CFED /* SceneDelegate.swift in Sources */,
+				62FD4EA226D4E59B00D9D5A9 /* UIScrollView.swift in Sources */,
+				62FD4E6D26D3F5D500D9D5A9 /* Location.swift in Sources */,
+				6220789D26D3D2CF005B9BF8 /* ApiError.swift in Sources */,
+				620D9ADA26D3EC1C004CBA38 /* Instantiatable.swift in Sources */,
+				620D9AE326D3EC6E004CBA38 /* FeedViewModel.swift in Sources */,
+				629EF26226D53225008AD24C /* LoadingView.swift in Sources */,
+				622078AB26D3D4F0005B9BF8 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +519,14 @@
 		};
 		624CA59326D3D09E0007CFED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BE44DFAA8CD87B7601F56DC /* Pods-alar-studios-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MXHD4G8GB5;
 				INFOPLIST_FILE = "alar-studios-test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,18 +534,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.at.alar-studios-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		624CA59426D3D09E0007CFED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08F6779597641CE44815E3C /* Pods-alar-studios-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MXHD4G8GB5;
 				INFOPLIST_FILE = "alar-studios-test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.at.alar-studios-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
