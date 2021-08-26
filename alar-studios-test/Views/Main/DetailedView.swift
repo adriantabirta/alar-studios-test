@@ -27,7 +27,6 @@ extension DetailedView: StoryboardInstantiatable {
     
     static var storyboardName: StoryboardName { "Main" }
     
-    
     func inject(_ dependency: Dependency) {
         _ = self.view
         

@@ -41,12 +41,15 @@ extension LoginViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        let request = Observable
-            .combineLatest(input.didTapLogin.map{ _ in "" }, input.username.asObservable(), input.password.asObservable()) { ($1, $2) }
+        let credentials = Observable
+            .combineLatest(input.username.asObservable(), input.password.asObservable()) { ($0, $1) }
             .filter{ !$0.0.isEmpty && !$0.1.isEmpty }
-            .map{ LocationService.login(username: $0.0, password: $0.1) }
         
-        let onResponse = login(request)
+        
+        let onResponse = login(input.didTapLogin
+                                .withLatestFrom(credentials)
+                                .map{ LocationService.login(username: $0.0, password: $0.1) }).share()
+        
         
         let showLoadingIndicator = isFetchingData.map{ !$0 }.asDriver(onErrorJustReturn: false)
         let isLoginButtonEnabled = Observable.combineLatest(input.username.asObservable(), input.password.asObservable()) { ($0, $1) }
@@ -70,12 +73,17 @@ extension LoginViewModel: ViewModelType {
                 self.isFetchingData.accept(true)
             })
             .flatMapLatest { [unowned self] in
-                self.provider.request(endpoint: $0) as Observable<Result<LocationServiceGeneralResponse<[String]>, Error>>
+                self.provider.request(endpoint: $0) as Observable<Result<LocationServiceGeneralResponse<[String]>, AppError>>
             }
             .do(onNext: { [unowned self] _ in
                 self.isFetchingData.accept(false)
             })
             .compactMap { try? $0.get() }
+            .do(onNext: { response in
+                if response.status != "ok" {
+                    AppError.general("Username or password are incorrect").handle()
+                }
+            })
             .filter { $0.status == "ok" }
             .compactMap{ $0.code }
     }

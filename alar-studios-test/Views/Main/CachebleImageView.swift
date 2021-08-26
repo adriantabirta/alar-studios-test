@@ -1,17 +1,22 @@
 //
-//  UIImageView.swift
+//  CachebleImageView.swift
 //  alar-studios-test
 //
-//  Created by Tabirta Adrian on 24.08.2021.
+//  Created by Tabirta Adrian on 26.08.2021.
 //
 
 import UIKit
 
 let imageCache = NSCache<NSString, AnyObject>()
 
-extension UIImageView {
+class CachebleImageView: UIImageView {
     
-    func loadImageUsingCache(withUrl urlString : String, completion: @escaping (() -> Void)) {
+    var imageUrlString: String?
+    
+    func loadImageUsingCache(withUrl urlString : String) {
+        
+        imageUrlString = urlString
+        
         let url = URL(string: urlString)
         self.image = nil
         
@@ -27,12 +32,13 @@ extension UIImageView {
                 return
             }
             
-            imageCache.setObject(image, forKey: urlString as NSString)
-            
-            DispatchQueue.main.async {
-                self.image = image
-                completion()
+            if self.imageUrlString == urlString {
+                DispatchQueue.main.async {
+                    self.image = image
+                }
             }
+            
+            imageCache.setObject(image, forKey: urlString as NSString)
             
         })
         .resume()

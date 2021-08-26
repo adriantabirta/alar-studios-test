@@ -9,12 +9,24 @@ import Foundation
 import UIKit
 
 enum AppError: Error, CustomStringConvertible {
-    case api
-    case network(Int, String)
-    case unableToDecode
+    
+    /// User initiated error
+    case general(String)
+    
+    /// Create a error from another
+    case selfDescribing(Error)
+    
+    /// Network errors
+    case network(ApiError)
+    
+    /// Decoder error with class that cannot be decoded
+    case unableToDecode(Any.Type)
+    
+    /// Fow all strange error we will use `unknown`.
     case unknown
     
     init?(_ error: Error) {
+        
         switch error.localizedDescription {
         // todo: handle here all catched errors
         default:
@@ -24,12 +36,16 @@ enum AppError: Error, CustomStringConvertible {
     
     var description: String {
         switch self {
-        case .api:
-            return self.description
-        case let .network(code, error):
-            return "\(code) - \(error)"
-        case .unableToDecode, .unknown:
-            return "Something bad happend."
+        case let .general(error):
+            return error
+        case let .selfDescribing(error):
+            return String(describing: error)
+        case let .network(apiError):
+            return apiError.description
+        case let .unableToDecode(classType):
+            return "Unable to decode \(classType) from raw data."
+        case .unknown:
+            return "Something terible happend."
         }
     }
 }
@@ -38,7 +54,7 @@ extension AppError {
     
     func handle() {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Oops!", message: self.localizedDescription, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oops!", message: self.description, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
         }

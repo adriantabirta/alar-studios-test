@@ -9,6 +9,9 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+
+
+
 class FeedView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,25 +39,42 @@ extension FeedView: StoryboardInstantiatable {
         self.viewModel = dependency.viewModel
         self.disposeBag = dependency.disposeBag
         
+        tableView.refreshControl = UIRefreshControl()
         tableView.tableFooterView = UIView()
         tableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: SubtitleTableViewCell.Identifier)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        
+  
+        
+        
         
         let input = FeedViewModel.Input(onItemSelected: self.tableView.rx.itemSelected, onReachedBottom: tableView.rx.reachedBottom())
         let output = self.viewModel.transform(input: input)
         
         output.isLoading.drive(self.showLoadingIndicator).disposed(by: disposeBag)
+        output.showTableviewPlaceholder.drive(showTableviewPlaceholder).disposed(by: disposeBag)
         output.presentDetailedView.drive(self.coordinator.rx.navigateToDetailScreen).disposed(by: disposeBag)
         output.rows.drive(tableView.rx.items(cellIdentifier: SubtitleTableViewCell.Identifier, cellType: SubtitleTableViewCell.self)) { (row, data, cell ) in
             cell.configure(data, completion: { [weak self] in self?.tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .fade)})
         }
         .disposed(by: disposeBag)
+        
     }
+}
+
+extension FeedView {
     
     var showLoadingIndicator: Binder<Bool> {
         return Binder(self.tableView) { (table, show) in
             table.tableFooterView = show ? LoadingView() : UIView(frame: .zero)
         }
+    }
+    
+    var showTableviewPlaceholder: Binder<Bool> {
+        return Binder(self.tableView, binding: { (table, show) in
+            table.backgroundView = show ? PlaceholderTextView(textPlaceholder: "Looks like there is no data or something bad happend.") : nil
+        })
     }
 }
 

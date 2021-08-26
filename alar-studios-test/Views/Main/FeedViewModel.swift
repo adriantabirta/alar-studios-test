@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import MapKit
 
-typealias LocationServiceResponse = Observable<Result<LocationServiceGeneralResponse<[Location]>, Error>>
+typealias LocationServiceResponse = Observable<Result<LocationServiceGeneralResponse<[Location]>, AppError>>
 
 class FeedViewModel {
     
@@ -36,7 +36,6 @@ class FeedViewModel {
         self.isFetchingData = isFetchingData
         self.provider = provider
         self.disposeBag = disposeBag
-        
     }
 }
 
@@ -50,14 +49,13 @@ extension FeedViewModel: ViewModelType  {
     struct Output {
         let rows: Driver<[Location]>
         let isLoading: Driver<Bool>
+        let showTableviewPlaceholder: Driver<Bool>
         let presentDetailedView: Driver<Location>
     }
     
     func transform(input: Input) -> Output {
         
-        let initialData = loadData(LocationService.locationsFor(code: code, page: page.value)).share()
-        initialData.bind(to: locations).disposed(by: disposeBag)
-        
+        loadData(LocationService.locationsFor(code: code, page: page.value)).drive(locations).disposed(by: disposeBag)
         
         let onLoadModeData = input.onReachedBottom.filter{ !self.isFetchingData.value }
         
@@ -75,6 +73,7 @@ extension FeedViewModel: ViewModelType  {
         .bind(to: locations)
         .disposed(by: disposeBag)
         
+        let showTableviewPlaceholder = locations.map{ $0.count == 0 }.asDriver(onErrorJustReturn: false)
         
         let presentDetailedView = input.onItemSelected
             .map { [unowned self] in self.locations.value[$0.row] }
@@ -82,6 +81,7 @@ extension FeedViewModel: ViewModelType  {
         
         return Output(rows: locations.asDriver(onErrorJustReturn: []),
                       isLoading: isFetchingData.asDriver(),
+                      showTableviewPlaceholder: showTableviewPlaceholder,
                       presentDetailedView: presentDetailedView)
     }
     
@@ -90,7 +90,7 @@ extension FeedViewModel: ViewModelType  {
         return "https://picsum.photos/id/\(row + 10)/100/100.jpg"
     }
     
-    private func loadData(_ request: LocationService) -> Observable<[Location]> {
+    private func loadData(_ request: LocationService) -> Driver<[Location]> {
         return Observable.just(request)
             .do(onNext: { [unowned self] (_) in
                 self.isFetchingData.accept(true)
@@ -98,12 +98,51 @@ extension FeedViewModel: ViewModelType  {
             .flatMapLatest { [unowned self] (req) -> LocationServiceResponse in
                 self.provider.request(endpoint: req)
             }
-            .compactMap{ try? $0.get() }
-            .filter{ $0.status == "ok" }
+            .flatMap({ (result) -> Observable<LocationServiceGeneralResponse<[Location]>> in
+                switch result {
+                case let .success(data):
+                    // Check if requeset response have correct status.
+                    // Otherwise we map and error so that retry mechanism can retry.
+                    guard data.status == "ok" else { return Observable.error(AppError.unknown) }
+                    return .just(data)
+                case let .failure(error): return Observable.error(error)
+                }
+            })
+            // Retry here with exponential delay.
+            .retry(RepeatBehavior.exponentialDelayed(maxCount: 5, initial: 1, multiplier: 0.5))
             .compactMap { $0.data }
-            .map{ $0.enumerated().map { Location($0.element, url: self.createImageUrlFrom($0.offset)) }}
+            .map{ [unowned self] in $0.enumerated().map { Location($0.element, url: self.createImageUrlFrom($0.offset)) }}
+            .do(onError: { (error) in
+                AppError.selfDescribing(error).handle()
+            })
             .do(onNext: { [unowned self] (_) in
                 self.isFetchingData.accept(false)
             })
+            .asDriver(onErrorJustReturn: [])
     }
 }
+
+
+
+
+//
+//
+//Observable<String>.create { (observer) -> Disposable in
+//
+//    print("make request")
+//    DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
+////                observer.onNext("send data")
+//        observer.onError(Err.lastTry)
+//    }
+//
+//    return Disposables.create()
+//}
+//.retry(RepeatBehavior.exponentialDelayed(maxCount: 5, initial: 1, multiplier: 0.5))
+//.do(onNext: { _ in
+//    print("tried")
+//})
+//.do(onError: { error in
+//    print("on error \(error.localizedDescription)")
+//})
+//.subscribe().disposed(by: disposeBag)
+

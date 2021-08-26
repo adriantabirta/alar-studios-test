@@ -24,7 +24,7 @@ class NetworkServiceProvider<N: NetworkService> {
 
 extension NetworkServiceProvider {
 
-    func request<D: Decodable>(endpoint: N) -> Observable<Result<D, Error>> {
+    func request<D: Decodable>(endpoint: N) -> Observable<Result<D, AppError>> {
         return Observable.create { [weak self] (observer) -> Disposable in
             
             guard let self = self else {
@@ -38,7 +38,7 @@ extension NetworkServiceProvider {
 
             self.urlSession.dataTask(with: endpoint.urlRequest) { (data, response: URLResponse?, error) in
                 if let error = error {
-                    observer.onNext(.failure(error))
+                    observer.onNext(.failure(AppError.network(ApiError.requestFailed(errorMessage: error))))
                 } else if let data = data, let response = response, let httpResponse = response as? HTTPURLResponse {
 
                     #if DEBUG
@@ -49,18 +49,21 @@ extension NetworkServiceProvider {
 
                     switch httpResponse.statusCode {
                     case 200..<300:
+                        
                         do {
                             let object = try self.decoder.decode(D.self, from: data)
                             observer.onNext(.success(object))
                         } catch {
-                            observer.onNext(.failure(AppError.unableToDecode))
+                            observer.onNext(.failure(AppError.unableToDecode(D.self)))
                         }
-
+                        
                     default:
-                        observer.onNext(.failure(ApiError.unknown))
+                        let apiError = ApiError.generalError(code: httpResponse.statusCode,
+                                                             message:HTTPURLResponse.localizedString(forStatusCode:httpResponse.statusCode))
+                        observer.onNext(.failure(AppError.network(apiError)))
                     }
                 } else {
-                    observer.onNext(.failure(ApiError.unknown))
+                    observer.onNext(.failure(AppError.unknown))
                 }
             }.resume()
             return Disposables.create()
